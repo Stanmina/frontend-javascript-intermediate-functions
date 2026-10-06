@@ -14,6 +14,8 @@ const grades = [9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6];
 // * Hoe zorgt ik ervoor dat wanneer ik een cijfer tegenkom die aan de conditie voldoet, ik dit ergens kan bijhouden?
 // Log het antwoord in de terminal.
 
+// we maken een for loop die over de grades array heen loopt, zodra er een cijfer 8 of hoger gevonden is verhogen we een int die buiten de loop zit met 1
+
 // ---- Verwachte uitkomst: 6
 
 
@@ -27,7 +29,22 @@ const grades = [9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6];
 // cumLaude([6, 4, 5]) geeft 0
 // cumLaude([8, 9, 4, 6, 10]) geeft 3
 
+console.log("Opdracht 1b")
 
+function cumLaude(grades) {
+    let count = 0
+    grades.forEach(grade => {
+        if (grade >= 8)
+            count++
+    })
+    return count;
+}
+let result = cumLaude(grades)
+console.log(result)
+result = cumLaude([6, 4, 5])
+console.log(result)
+result = cumLaude([8, 9, 4, 6, 10])
+console.log(result)
 
 
 /* Opdracht  2: Gemiddeld cijfer */
@@ -39,6 +56,10 @@ const grades = [9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6];
 // * Wat moet ik verzamelen uit de array van cijfers om uiteindelijk een gemiddelde te kunnen berekenen?
 // * Hoe zorgt ik ervoor dat ik alle waardes uit de array kan langslopen, ook als de array wel 100 entries zou bevatten?
 // Log het antwoord in de terminal.
+
+// hetzelfde als de vorige opdracht we maken gebruik van een counter die buiten de loop staat
+// we loopen over de grades en doen alle het totaal + nieuwe waarde
+// uiteindelijk gaan we dit delen door de lengte van grades
 
 // ---- Verwachte uitkomst: 6.642857142857143
 
@@ -53,6 +74,23 @@ const grades = [9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6];
 // averageGrade([6, 4, 5]) geeft 5
 // averageGrade([8, 9, 4, 6, 10]) geeft 7.4
 
+
+console.log("Opdracht 2b")
+
+function averageGrade(grades) {
+    let total = 0
+    grades.forEach(grade => {
+        total += grade
+    });
+    return (total / grades.length).toFixed(2);
+}
+
+result = averageGrade(grades)
+console.log(result)
+result = averageGrade([6, 4, 5])
+console.log(result)
+result = averageGrade([8, 9, 4, 6, 10])
+console.log(result)
 
 /* 2c: Afronden op twee decimalen */
 // Zorg ervoor dat het gemiddelde cijfer dat wordt teruggegeven uit de functie netjes wordt afgerond op twee decimalen.
@@ -70,6 +108,9 @@ const grades = [9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6];
 // * Hoe zorgt ik ervoor dat wanneer ik een cijfer tegenkom die aan de conditie voldoet, ik dit ergens kan opslaan?
 // Log het antwoord in de terminal.
 
+// we gaan wederom loopen over de waarde van grades en we hebben een waarde buiten de loop
+// als het huidige cijfer groter is dan het cijfer buiten de loop schrijven we deze over totdat de lijst eindig is
+
 // ---- Verwachte uitkomst: 9
 
 
@@ -82,3 +123,21 @@ const grades = [9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6];
 // highestGrade(grades) geeft 9
 // highestGrade([6, 4, 5]) geeft 6
 // highestGrade([8, 9, 4, 6, 10]) geeft 10
+
+console.log("Opdracht 3b")
+
+function highestGrade(grades) {
+    let highest = 0
+    grades.forEach(grade => {
+        if (grade > highest)
+            highest = grade
+    });
+    return highest;
+}
+
+result = highestGrade(grades)
+console.log(result)
+result = highestGrade([6, 4, 5])
+console.log(result)
+result = highestGrade([8, 9, 4, 6, 10])
+console.log(result)
